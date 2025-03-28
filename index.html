@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vikram Mali | Software Consultant & Developer</title>
+    <!-- Include Font Awesome for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-XxX" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, h3, h4, p, ul, li, a, div, span { margin: 0; padding: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding-top: 60px; /* offset for fixed nav */
+        }
+        a { color: #007BFF; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        /* Navigation bar */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            background: #343a40; color: #fff;
+            padding: 10px 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav .logo { font-size: 1.2em; font-weight: bold; }
+        nav .menu-toggle { cursor: pointer; font-size: 1.5em; display: none; }
+        nav ul { list-style: none; display: flex; }
+        nav ul li { margin: 0 15px; }
+        nav ul li a { color: #fff; font-size: 1em; font-weight: 500; }
+        nav ul li a:hover { text-decoration: underline; }
+        /* Responsive nav (mobile) */
+        @media(max-width: 768px) {
+            nav .menu-toggle { display: block; }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px; right: 20px;
+                width: 150px;
+                background: #343a40;
+                border: 1px solid #444;
+            }
+            nav ul.open { display: flex; }
+            nav ul li { margin: 10px 0; text-align: right; }
+        }
+        /* Section styles */
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        section h2 {
+            font-size: 2em; margin-bottom: 20px;
+            color: #333; text-align: center;
+        }
+        /* Hero Section */
+        #hero { background: #f8f9fa; }
+        #hero .intro {
+            display: flex; flex-wrap: wrap;
+            align-items: center; justify-content: space-between;
+            max-width: 1200px; margin: 0 auto;
+        }
+        #hero .intro-text { flex: 1; }
+        #hero h1 { font-size: 2.5em; color: #000; margin-bottom: 0.2em; }
+        #hero h2 { font-size: 1.5em; color: #007BFF; margin-bottom: 0.5em; }
+        #hero p { font-size: 1.1em; color: #555; }
+        #hero .intro-image { flex: 1; text-align: center; margin: 20px; }
+        #hero .intro-image img { width: 200px; border-radius: 50%; }
+        /* About Section */
+        #about p { margin-bottom: 15px; }
+        /* Services Section */
+        #services { background: #f8f9fa; }
+        #services .service-list {
+            display: flex; flex-wrap: wrap;
+            justify-content: center; gap: 40px;
+        }
+        #services .service-item {
+            flex: 1 1 200px; max-width: 250px;
+            text-align: center;
+        }
+        #services .service-item i {
+            font-size: 2em; color: #007BFF;
+            margin-bottom: 10px;
+        }
+        #services .service-item h3 {
+            font-size: 1.2em; color: #343a40;
+            margin-bottom: 0.5em;
+        }
+        #services .service-item p { font-size: 0.95em; color: #555; }
+        /* Skills Section */
+        #skills .skill-list p { margin-bottom: 10px; }
+        #skills .skill-list strong { color: #343a40; }
+        /* Projects Section */
+        #projects .project-list {
+            display: flex; flex-wrap: wrap;
+            justify-content: center; gap: 40px;
+        }
+        #projects .project-item {
+            flex: 1 1 250px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px;
+        }
+        #projects .project-item h3 {
+            font-size: 1.1em; color: #007BFF;
+            margin-bottom: 0.5em;
+        }
+        #projects .project-item p { font-size: 0.95em; color: #555; }
+        /* Testimonials Section */
+        #testimonials { background: #f8f9fa; }
+        #testimonials .testimonial-list {
+            display: flex; flex-wrap: wrap;
+            justify-content: center; gap: 40px;
+        }
+        #testimonials .testimonial {
+            flex: 1 1 300px;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            font-style: italic;
+            position: relative;
+        }
+        #testimonials .testimonial p { margin-bottom: 10px; }
+        #testimonials .author {
+            text-align: right;
+            font-weight: bold;
+            font-style: normal;
+            color: #333;
+        }
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            background: #343a40; color: #fff;
+            padding: 60px 20px;
+        }
+        #contact h2 { color: #fff; margin-bottom: 20px; }
+        #contact p { margin: 10px 0; font-size: 1em; }
+        #contact a { color: #FFD700; }
+        #contact a:hover { text-decoration: none; }
+        /* Smooth scrolling for anchor links */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Vikram Mali</div>
+        <div class="menu-toggle" id="menu-toggle"><i id="menu-icon" class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <!-- Hero/Intro Section -->
+    <section id="hero">
+        <div class="intro">
+            <div class="intro-text">
+                <h1>Vikram Mali</h1>
+                <h2>Software Consultant & Full-Stack Developer</h2>
+                <p>Experienced in web applications and Android/iOS development with over 15 years of expertise in building modern solutions.</p>
+            </div>
+            <div class="intro-image">
+                <!-- Profile Image Placeholder -->
+                <img src="https://via.placeholder.com/200" alt="Profile Picture of Vikram Mali" />
+            </div>
+        </div>
+    </section>
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm a versatile developer passionate about creating innovative mobile apps, games, and web solutions. I have a demonstrated history of building everything from robust WebRTC communication apps to engaging games like Wordle.</p>
+        <p>I'm the Founder & CTO of a tech startup (Codebell) and have been developing software since 2008. With over 15 years in the industry, I excel at transforming ideas into real-world applications, and I'm here to bring your vision to life.</p>
+    </section>
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Services</h2>
+        <div class="service-list">
+            <div class="service-item">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Web Development</h3>
+                <p>Building responsive and scalable web applications with modern frameworks and best practices.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-android"></i>
+                <h3>Android Apps</h3>
+                <p>Creating native Android applications (Java/Kotlin) with great user experience and performance.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-apple"></i>
+                <h3>iOS Apps</h3>
+                <p>Developing intuitive iOS applications (Swift/SwiftUI) tailored to Apple’s design guidelines.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-project-diagram"></i>
+                <h3>Tech Consulting</h3>
+                <p>Providing software architecture consulting, project guidance, and technical solutions for your business.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills & Tech Stack</h2>
+        <div class="skill-list">
+            <p><strong>Web:</strong> HTML5, CSS3, JavaScript (ES6), Angular, Vue.js, jQuery</p>
+            <p><strong>Mobile:</strong> Android (Java, Kotlin), iOS (Swift, SwiftUI)</p>
+            <p><strong>Backend:</strong> Node.js, Golang, PHP, C# (.NET)</p>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Selected Projects</h2>
+        <div class="project-list">
+            <div class="project-item">
+                <h3><i class="fas fa-video"></i> WebRTC Video Calling App</h3>
+                <p>A seamless video calling app built with WebRTC technology for iOS and Android platforms.</p>
+            </div>
+            <div class="project-item">
+                <h3><i class="fas fa-gamepad"></i> Wordle Game</h3>
+                <p>An engaging word puzzle game featuring a polished user interface and interactive gameplay.</p>
+            </div>
+            <div class="project-item">
+                <h3><i class="fas fa-truck"></i> Fleet Management App</h3>
+                <p>A live location tracking app for fleet management, built with Kotlin and Socket.io for real-time updates.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial-list">
+            <div class="testimonial">
+                <p>"Very professional, stable coding, proactive interaction and updates, reasonable costing."</p>
+                <p class="author">– Client on Freelancer.com</p>
+            </div>
+            <div class="testimonial">
+                <p>"Exceeded our expectations! The project was delivered ahead of schedule with top-notch quality."</p>
+                <p class="author">– John Doe, Web App Client</p>
+            </div>
+            <div class="testimonial">
+                <p>"Great communication and excellent problem-solving skills. Would definitely hire again."</p>
+                <p class="author">– Jane Smith, Mobile App Client</p>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Interested in working together? Feel free to reach out!</p>
+        <p><a href="mailto:email@vikrammali.in"><i class="fas fa-envelope"></i> email@vikrammali.in</a></p>
+        <p><a href="tel:+919763429023"><i class="fas fa-phone"></i> +91 9763429023</a></p>
+        <p><a href="https://www.linkedin.com/in/vikram-mali-6b2bb0b7" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></p>
+        <p><a href="https://www.freelancer.com/u/MaliVikram" target="_blank"><i class="fas fa-user"></i> Freelancer Profile</a></p>
+    </section>
+    <!-- Menu Toggle Script (for mobile nav) -->
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var navLinks = document.getElementById('nav-links');
+            var menuIcon = document.getElementById('menu-icon');
+            if (navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                navLinks.classList.add('open');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            }
+        });
+    </script>
+</body>
+</html>
