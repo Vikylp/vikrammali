@@ -29,8 +29,9 @@
             color: white;
             display: flex;
             justify-content: space-between;
-            padding: 10px 30px;
+            padding: 10px;
             z-index: 1000;
+            flex-wrap: wrap
         }
 
         nav .logo {
@@ -43,10 +44,9 @@
             display: flex;
             margin: 0;
             padding: 0;
-        }
-
-        nav ul li {
-            margin: 0 15px;
+            gap: 1em;
+            overflow: auto;
+            padding-right: 1em;
         }
 
         nav ul li a {
